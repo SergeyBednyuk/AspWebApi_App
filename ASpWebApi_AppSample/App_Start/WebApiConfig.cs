@@ -1,12 +1,7 @@
-﻿using System;
-using System.Web.Http;
-using Microsoft.OData.Edm;
-using System.Net.Http.Headers;
-using System.Web.OData.Builder;
-using System.Web.OData.Extensions;
+﻿using System.Web.Http;
 using ASpWebApi_AppSample.Models;
-
-
+using Microsoft.AspNet.OData.Builder;
+using Microsoft.AspNet.OData.Extensions;
 
 
 namespace ASpWebApi_AppSample
@@ -23,15 +18,14 @@ namespace ASpWebApi_AppSample
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            //config.MapODataServiceRoute("oDataRouting", "odata", GetEdmModel());
-        }
+            ODataModelBuilder builder = new ODataConventionModelBuilder();
+            builder.EntitySet<Car>("Cars");
+            config.MapODataServiceRoute(
+                routeName: "ODataRoute",
+                routePrefix: "odata",
+                model: builder.GetEdmModel());
 
-        //private static IEdmModel GetEdmModel()
-        //{
-        //    var builder = new ODataConventionModelBuilder();
-        //    builder.EntitySet<Car>("Cars");
-        //    var edmModel = builder.GetEdmModel();
-        //    return edmModel;
-        //}
+        }
+      
     }
 }

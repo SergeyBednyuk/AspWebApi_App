@@ -10,19 +10,17 @@ namespace ASpWebApi_AppSample.Controllers
 {
     public class CarsTestController : ApiController
     {
-        
+        private CarsDbContext _db = new CarsDbContext();
+
         [HttpGet]
         public IEnumerable<Car> AllCars()
         {
-            using (CarsDbContext db = new CarsDbContext())
-            {
-                return db.Cars;
-            }
+            return _db.Cars;
         }
 
         protected override void Dispose(bool disposing)
         {
-            //_db.Dispose();
+            _db.Dispose();
             base.Dispose(disposing);
         }
     }
