@@ -8,6 +8,7 @@ using System.Web;
 
 namespace ASpWebApi_AppSample.Models
 {
+    [Table("Car")]
     public class Car
     {
         //[ScaffoldColumn(false)]
@@ -17,9 +18,9 @@ namespace ASpWebApi_AppSample.Models
         [Display(Name = "Brand")]
         public string Name { get; set; }
         public string Model { get; set; }
-        [DataType(DataType.Date)]
+        //[DataType(DataType.Date)]
         public DateTime Year { get; set; }
-        [Range(1.00, 10000000.00, ErrorMessage = "Price must be between 1$ and 10000000$")]
+        //[Range(1.00, 10000000.00, ErrorMessage = "Price must be between 1$ and 10000000$")]
         public decimal Price { get; set; }
     }
 }

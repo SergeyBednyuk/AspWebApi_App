@@ -1,7 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Http;
+using Microsoft.OData.Edm;
+using System.Net.Http.Headers;
+using System.Web.OData.Builder;
+using System.Web.OData.Extensions;
+using ASpWebApi_AppSample.Models;
+
+
+
 
 namespace ASpWebApi_AppSample
 {
@@ -9,9 +15,6 @@ namespace ASpWebApi_AppSample
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
-
-            // Web API routes
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
@@ -19,6 +22,16 @@ namespace ASpWebApi_AppSample
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            //config.MapODataServiceRoute("oDataRouting", "odata", GetEdmModel());
         }
+
+        //private static IEdmModel GetEdmModel()
+        //{
+        //    var builder = new ODataConventionModelBuilder();
+        //    builder.EntitySet<Car>("Cars");
+        //    var edmModel = builder.GetEdmModel();
+        //    return edmModel;
+        //}
     }
 }

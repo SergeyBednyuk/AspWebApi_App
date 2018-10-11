@@ -19,6 +19,7 @@ namespace ASpWebApi_AppSample.Models
                 new Car() {Name = "Nissan", Model = "R32 GTR", Price = 100000, Year = new DateTime(1992, 1, 10)},
                 new Car() {Name = "Honda", Model = "NSX", Price = 250000, Year = new DateTime(2017, 2, 14)},
                 new Car() {Name = "Honda", Model = "NSX-R", Price = 150000, Year = new DateTime(1995, 6, 14)},
+                new Car() { Name = "test", Model = "test", Price = 1000, Year = new DateTime(2000, 12,12)}
             };
 
             context.Cars.AddRange(list);
